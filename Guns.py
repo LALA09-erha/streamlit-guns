@@ -77,7 +77,8 @@ if menu_selection == 'Uji Coba':
 
         # Gabungkan new_data ke datatest
         datatest = pd.concat([datatest, new_data], ignore_index=True)
-        datanorm = joblib.load('models/standard_scaler.pkl').transform(datatest)  # Ubah fit_transform ke transform
+        datanorm = joblib.load('models/standard_scaler.pkl')
+        print(datanorm)
         datapredict = joblib.load('models/lili.pkl')
         print(datapredict)
 
