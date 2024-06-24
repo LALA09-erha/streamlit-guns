@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decision Tree Classification</title>
+  </head>
+  <body>
+    <h1>Decision Tree Classification Report</h1>
+
+    <h2>Classification Report</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Precision</th>
+          <th>Recall</th>
+          <th>F1-Score</th>
+          <th>Support</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for label, metrics in class_report.items() if label != 'accuracy' %}
+        <tr>
+          <td>{{ label }}</td>
+          <td>{{ metrics['precision'] }}</td>
+          <td>{{ metrics['recall'] }}</td>
+          <td>{{ metrics['f1-score'] }}</td>
+          <td>{{ metrics['support'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- <h2>Confusion Matrix</h2>
+    <img
+      src="{{ url_for('static', filename='images/confusion_matrix.png') }}"
+      alt="Confusion Matrix"
+    /> -->
+  </body>
+</html>
